@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthGuard AI | Fact Checker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22S2 16.3284 2 10.6127V5.51139C2 4.65584 2.56942 3.88214 3.39345 3.61904L11.3935 1.06644C11.7876 0.940656 12.2124 0.940656 12.6065 1.06645L20.6065 3.61904C21.4306 3.88214 22 4.65584 22 5.51139V10.6127C22 16.3284 12 22 12 22Z" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 11.5L11 14.5L16 8.5" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="1" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5" />
+                            <stop offset="1" stop-color="#EC4899" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>TruthGuard <span>AI</span></h1>
+            </div>
+            <p class="subtitle">Instantly verify claims, news, and statements using Gemini AI fact-checking.</p>
+        </header>
+
+        <div class="card">
+            <div class="input-section">
+                <label for="text-input">Paste news, claims, or text here:</label>
+                <textarea id="text-input" placeholder="e.g., 'A new study claims that drinking 8 cups of coffee a day makes you immortal...'"></textarea>
+                
+                <div class="action-bar">
+                    <button id="analyze-btn" class="primary-btn">
+                        <span class="btn-text">Analyze Content</span>
+                        <div class="loader hidden"></div>
+                    </button>
+                    <button id="clear-btn" class="secondary-btn">Clear</button>
+                </div>
+            </div>
+
+            <div id="result-section" class="result-section hidden">
+                <div class="result-header">
+                    <h2>Analysis Result</h2>
+                    <div id="status-badge" class="badge">True</div>
+                </div>
+                <div class="explanation-box">
+                    <h3>Why this result?</h3>
+                    <p id="explanation-text">The claim aligns with verified reporting.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by Google Gemini API &bull; No data is stored</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
